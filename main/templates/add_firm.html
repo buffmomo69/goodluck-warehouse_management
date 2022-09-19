@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Add Firm | Warehouse
+{% endblock title %}
+
+{% block content %}
+
+<style>
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+</style>
+
+<h1 class="">Add Firm</h1>
+
+    {% if errormessage  %}
+    <div class="alert alert-danger fade show" role="alert">
+    {{errormessage}}
+
+        </div>
+ <div class="form-group">
+
+{% endif %}
+
+    <form class="was-validated" method="POST" action="{% url "add_firm" %}">
+        {% csrf_token %}
+        {{forms.non_field_error}}
+        
+        {% for field in forms %}
+            {{field.label_tag}} 
+            {{field}}<br>
+            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                 {{field.errors}}
+            </div>
+        {% endfor %}
+<input type="submit" class="btn btn-success" value="Add Firm"></input>
+
+    </form>
+</div>
+
+{% endblock %}

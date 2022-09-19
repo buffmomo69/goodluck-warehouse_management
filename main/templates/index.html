@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+Inventory | Warehouse
+{% endblock title %}
+{% block content %}
+
+
+
+<h1 class="display-6">Inventory on Warehouse</h1>
+<form class="form-inl">
+<ul class="list-inline">
+    <li class="list-inline-item">{{markafilter.form.markname}} </li>
+    <li class="list-inline-item">{{markafilter.form.containernumber}}</li>
+    <li class="list-inline-item"><button type="submit" class="btn btn-secondary">Search</button></li>
+</ul>
+
+
+
+</form>
+
+    <table class="table table-bordered table-hover col-mid" ,
+    style="width: 95vw; margin-left: auto;margin-right: auto ;margin-top: 1rem;">
+
+    <thead class="thead-light">
+        <th>Container Number</th>
+        <th>Marka</th>
+        <th>Cartoon</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </thead>
+
+    {% for marka in markas %}
+    <tr>
+        <td>{{marka.containernumber.ContainerNumber}}
+        <td>{{marka.markname}}</td>
+        <td>{{marka.cartoon}}</td>
+        {% comment %} <td>{{marka.id}} {% endcomment %}
+        <td><a href="{% url "update_stock" marka.id %}" class="btn btn-sm btn-primary">Update</a></td>
+        <td> <button class="btn btn-danger">Delete</button></td>
+    </tr>
+    {% endfor %}
+
+
+
+
+</table>
+
+
+{% endblock %}
