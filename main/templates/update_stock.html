@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+Update Stock | Warehouse
+{% endblock title %}
+{% block content %}
+<style>
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+</style>
+<h1>Update Stock</h1>
+
+ <div class="form-group">
+
+    <form class="was-validated" method="POST" action="{% url "update_stock" marka.id %}">
+        
+        {% csrf_token %}
+        {{forms.non_field_error}}
+        
+        {% for field in forms %}
+            {{field.label_tag}} {{field}}
+            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                {{field.errors}}
+            </div>
+        {% endfor %}
+<input type="submit" class="btn btn-success" value="Update Stock"></input>
+
+    </form>
+</div>
+
+{% endblock content %}
