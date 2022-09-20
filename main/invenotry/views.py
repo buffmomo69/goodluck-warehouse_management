@@ -81,6 +81,7 @@ def add_firm(request):
                 forms.save()
                 return redirect('add_firm')
             except IntegrityError as error:
+                print(error)
                 if 'UNIQUE constraint' in str(error.args):
                     errormessage = "The Given Container Number Already Exists Enter a New Container Number"
                     return render(request, 'add_firm.html', {"forms": forms, "errormessage": errormessage})

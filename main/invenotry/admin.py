@@ -7,4 +7,8 @@ admin.site.register(Container)
 
 admin.site.register(Firm)
 admin.site.register(Marka)
+admin.site.register(StockSentDetail)
+admin.site.register(Vehicle)
+
+
 

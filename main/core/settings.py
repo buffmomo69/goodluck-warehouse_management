@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     #user installed
     'invenotry',
     'django_filters',
-    'send',
+  
 ]
 
 MIDDLEWARE = [
